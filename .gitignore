@@ -3,6 +3,15 @@
 /.phpunit.cache/
 /.phpunit.result.cache
 /.phpstan.cache/
+/examples/dev-app/vendor/
+/examples/dev-app/composer.lock
+/examples/dev-app/log/*
+!/examples/dev-app/log/.gitkeep
+/examples/dev-app/temp/*
+!/examples/dev-app/temp/.gitkeep
+/.env
+/.env.local
+/.env.*.local
 /.idea/
 /.vscode/
 .DS_Store

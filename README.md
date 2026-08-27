@@ -1,48 +1,52 @@
-# Websonette Latte Application
+# Websonette Web Application
 
-Shared foundations for classic server-rendered Nette applications using Latte. This package is intended for HTML web applications, not JSON APIs.
+Framework-independent request-scoped state shared by Websonette application adapters.
 
 > The package is currently being prepared and does not have a stable public API yet.
 
-## Intended scope
+## Scope
 
-The package may provide reusable foundations for:
+The package contains data and operations only. It does not depend on Nette, Latte, React, HTML, sessions, or a particular response format.
 
-- a thin base presenter for HTML applications;
-- typed and extended flash messages;
-- breadcrumb and page metadata coordination;
-- Latte-oriented presenter and template integration;
-- common application-level contracts and value objects;
-- small DI integrations needed by these features.
+- `Websonette\WebApplication\Breadcrumbs\Breadcrumbs` manages an ordered breadcrumb trail identified by URL.
+- `Websonette\WebApplication\Page\PageContext` describes the current page and exposes a serializable SPA-friendly contract.
 
-## Explicitly outside the package
+Rendering belongs to adapter packages such as `websonette/latte-application`. A future SPA adapter may serialize the same objects into an API response.
 
-- API presenters, JSON response conventions, and API authentication;
-- project-specific domain or authorization rules;
-- mandatory localization dependencies;
-- concrete UI widgets, grids, modals, or frontend design systems.
+## Breadcrumbs
 
-Localization, security, and larger UI capabilities should remain optional packages. The core package must stay usable by a small web that does not need those features.
+```php
+use Websonette\WebApplication\Breadcrumbs\Breadcrumbs;
+
+$breadcrumbs = new Breadcrumbs();
+$breadcrumbs->add('Homepage', '/', 'home', 'Introduction');
+$breadcrumbs->add('Products', '/products', 'box');
+```
+
+## Page context
+
+```php
+use Websonette\WebApplication\Page\PageContext;
+
+$page = (new PageContext())
+    ->setTitle('Products')
+    ->setHeading('Our products')
+    ->setDescription('Product overview')
+    ->setCanonicalUrl('https://example.com/products')
+    ->addAlternateUrl('cs', 'https://example.com/cs/produkty')
+    ->setProperty('og:title', 'Products');
+```
+
+Both services provide `toArray()` output suitable for a framework-specific JSON response.
 
 ## Installation
 
-The package is not published yet. After the first stable release it will be installable through Composer:
+After the first release and Packagist registration:
 
 ```bash
-composer require websonette/latte-application
+composer require websonette/web-application
 ```
-
-## Development
-
-Run all checks exposed by the package:
-
-```bash
-composer test
-```
-
-The package follows the organization-wide [contribution guidelines](https://github.com/Websonette/.github/blob/main/CONTRIBUTING.md) and [CI contract](https://github.com/Websonette/.github/blob/main/docs/CI.md).
 
 ## License
 
-Websonette Latte Application is licensed under the MIT License.
-
+Websonette Web Application is licensed under the MIT License.

@@ -1,23 +1,35 @@
 {
-  "name": "websonette/latte-application",
-  "description": "Foundations for server-rendered Nette web applications using Latte.",
+  "name": "websonette/web-application",
+  "description": "Framework-independent page context, breadcrumbs, and shared web application state.",
   "type": "library",
   "license": "MIT",
   "require": {
-    "php": "^8.3",
-    "latte/latte": "^3.0",
-    "nette/application": "^3.2"
+    "php": "^8.3"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.2",
+    "phpunit/phpunit": "^12.0"
   },
   "autoload": {
     "psr-4": {
-      "Websonette\\LatteApplication\\": "src/"
+      "Websonette\\WebApplication\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Websonette\\WebApplication\\Tests\\": "tests/"
     }
   },
   "scripts": {
-    "test": "composer validate --strict"
+    "analyse": "phpstan analyse",
+    "tests": "phpunit",
+    "test": [
+      "@composer validate --strict",
+      "@tests",
+      "@analyse"
+    ]
   },
   "config": {
     "sort-packages": true
   }
 }
-

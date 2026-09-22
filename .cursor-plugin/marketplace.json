@@ -1,0 +1,19 @@
+{
+  "name": "websonette",
+  "owner": {
+    "name": "Websonette"
+  },
+  "metadata": {
+    "description": "Websonette development workflows and standards",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "websonette-web-application",
+      "source": ".",
+      "description": "Create, update, and audit Websonette web projects.",
+      "version": "0.1.0",
+      "license": "MIT"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://websonette.github.io/contracts/page-context.v1.schema.json",
+  "title": "Websonette PageContext v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "heading",
+    "description",
+    "canonicalUrl",
+    "alternateUrls",
+    "robots",
+    "meta",
+    "properties"
+  ],
+  "properties": {
+    "title": { "type": ["string", "null"] },
+    "heading": { "type": ["string", "null"] },
+    "description": { "type": ["string", "null"] },
+    "canonicalUrl": { "type": ["string", "null"], "format": "uri-reference" },
+    "alternateUrls": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "format": "uri-reference" }
+    },
+    "robots": {
+      "type": "string",
+      "enum": ["index, follow", "index, nofollow", "noindex, follow", "noindex, nofollow"]
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://websonette.github.io/contracts/application-context.v1.schema.json",
+  "title": "Websonette ApplicationContext v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "page", "breadcrumbs"],
+  "properties": {
+    "contractVersion": { "const": 1 },
+    "page": { "$ref": "page-context.schema.json" },
+    "breadcrumbs": { "$ref": "breadcrumbs.schema.json" }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "websonette-web-application",
+  "description": "Websonette web engineering standards and project orchestration skills.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Websonette"
+  },
+  "repository": "https://github.com/Websonette/web-application",
+  "license": "MIT"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://websonette.github.io/scaffold/project.v1.schema.json",
+  "title": "Websonette generated project metadata v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profile",
+    "profileVersion",
+    "adapterRepository",
+    "adapterReference",
+    "contractVersion",
+    "createdBy"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "schemaVersion": { "const": 1 },
+    "profile": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "profileVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$" },
+    "adapterRepository": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
+    "adapterReference": { "type": "string", "minLength": 1 },
+    "contractVersion": { "const": 1 },
+    "createdBy": { "const": "websonette/create-project" }
+  }
+}

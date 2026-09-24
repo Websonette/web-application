@@ -1,0 +1,10 @@
+---
+description: Apply Websonette engineering and web-project boundaries.
+alwaysApply: true
+---
+
+Follow Websonette Engineering Standards and the common standards in this plugin's `docs/standards/` directory.
+
+Keep dependency direction `project -> adapter -> web-application`. Put framework-specific behavior in the selected adapter and business/design behavior in the consuming project. Apply SOLID, KISS, and DRY pragmatically. Prefer a direct, testable implementation; do not add speculative layers, interfaces, factories, managers, repositories, or generic frameworks.
+
+Treat `websonette/web-application/contracts/` as the canonical cross-runtime serialization contract.
